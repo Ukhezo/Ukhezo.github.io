@@ -594,7 +594,8 @@ document.getElementById('cform').addEventListener('submit',async e=>{
   if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)||!f.msg.value.trim()){n.textContent='Please fill in your name, a valid email and a message.';n.style.color='#f87171';return}
   btn.disabled=true;btn.textContent='Sending…';n.style.color='';n.textContent='';
   try{
-    const r=await fetch('https://formsubmit.co/ajax/ukhezo@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    const ctl=new AbortController();setTimeout(()=>ctl.abort(),8000);
+    const r=await fetch('https://formsubmit.co/ajax/ukhezo@gmail.com',{signal:ctl.signal,method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
       body:JSON.stringify({name:f.name.value,email:f.email.value,_replyto:f.email.value,_subject:'Portfolio: '+(f.subject.value||'New message'),message:f.msg.value,_template:'table'})});
     const j=await r.json().catch(()=>({}));
     if(!r.ok||String(j.success)==='false')throw 0;
