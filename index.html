@@ -172,6 +172,10 @@ section{padding:90px 0}
 .calc .keys i{font-style:normal;font-size:12px;text-align:center;padding:5px 0;border-radius:5px;background:#1f2a40;color:#cbd5e1}
 .calc .keys i.op{background:linear-gradient(135deg,#22d3ee,#a855f7);color:#0b0f1a;font-weight:700}
 
+.cv-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.cv-pages{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.cv-pages img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(34,211,238,.15),0 18px 50px rgba(0,0,0,.5);background:#fff}
+@media(max-width:760px){.cv-pages{grid-template-columns:1fr}}
 /* CONTACT */
 .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:30px}
 .c-info{display:grid;gap:16px;align-content:start}
@@ -210,7 +214,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="cv/Mbhekeni_Makhathini_CV.pdf" target="_blank" rel="noopener" class="cvlink">CV ↓</a></li>
+      <li><a href="#cv" class="cvlink">CV</a></li>
     </ul>
   </div>
 </nav>
@@ -432,6 +436,21 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="wrap">
+    <h2 class="sec-title">My <span class="grad">CV</span></h2>
+    <p class="sec-sub">Read it here, or download the PDF</p>
+    <div class="cv-actions">
+      <a class="btn solid" href="cv/Mbhekeni_Makhathini_CV.pdf" download><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11 3h2v9.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6V3ZM4 19h16v2H4v-2Z"/></svg>Download PDF</a>
+      <a class="btn" href="cv/Mbhekeni_Makhathini_CV.pdf" target="_blank" rel="noopener">Open in new tab</a>
+    </div>
+    <div class="cv-pages reveal">
+      <img src="cv/page-1.jpg" alt="CV page 1 of 2: Mbhekeni Makhathini, profile, technical skills and projects" loading="lazy" width="1240" height="1754">
+      <img src="cv/page-2.jpg" alt="CV page 2 of 2: education, certifications and strengths" loading="lazy" width="1240" height="1754">
     </div>
   </div>
 </section>
