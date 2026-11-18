@@ -587,14 +587,24 @@ addEventListener('scroll',()=>{const y=scrollY+120;let cur='home';secs.forEach(s
   toTop.classList.toggle('show',scrollY>600)},{passive:true});
 toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-// contact form -> opens the visitor's email app with the message filled in
-document.getElementById('cform').addEventListener('submit',e=>{
-  e.preventDefault();const f=e.target,n=document.getElementById('fnote');
+// contact form -> sends straight to Gmail via Web3Forms (falls back to the email app)
+document.getElementById('cform').addEventListener('submit',async e=>{
+  e.preventDefault();const f=e.target,n=document.getElementById('fnote'),btn=f.querySelector('button[type=submit]');
   if(f._honey.value)return;
   if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)||!f.msg.value.trim()){n.textContent='Please fill in your name, a valid email and a message.';n.style.color='#f87171';return}
-  const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
-  n.style.color='#4ade80';n.innerHTML='Opening your email app with your message ready to send. Nothing opened? Use <b>Copy email</b> below and send it from your own email.';
-  location.href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent('Portfolio: '+(f.subject.value||'New message'))}&body=${encodeURIComponent(body)}`;
+  btn.disabled=true;btn.textContent='Sending…';n.style.color='';n.textContent='';
+  try{
+    const ctl=new AbortController();setTimeout(()=>ctl.abort(),10000);
+    const r=await fetch('https://api.web3forms.com/submit',{signal:ctl.signal,method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({access_key:'08f68877-4cb7-4f3d-84ad-41b2b284b78a',subject:'Portfolio: '+(f.subject.value||'New message'),from_name:'Portfolio – '+f.name.value,name:f.name.value,email:f.email.value,replyto:f.email.value,message:f.msg.value})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.success)throw 0;
+    n.style.color='#4ade80';n.textContent='Thank you! Your message has been sent. I\'ll get back to you soon.';f.reset();
+  }catch(_){
+    const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
+    n.style.color='#fbbf24';n.innerHTML='The message could not be sent from here, so your email app is opening instead. Or use <b>Copy email</b>.';
+    location.href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent('Portfolio: '+(f.subject.value||'New message'))}&body=${encodeURIComponent(body)}`;
+  }finally{btn.disabled=false;btn.textContent='Send message'}
 });
 document.getElementById('copyMail').addEventListener('click',async ev=>{
   const b=ev.currentTarget;try{await navigator.clipboard.writeText('ukhezo@gmail.com');b.textContent='Copied ✓'}catch(_){b.textContent='ukhezo@gmail.com'}
