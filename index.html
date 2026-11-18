@@ -187,6 +187,12 @@ section{padding:90px 0}
 .cv-pages{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1000px;margin:0 auto}
 .cv-pages img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(34,211,238,.15),0 18px 50px rgba(0,0,0,.5);background:#fff}
 @media(max-width:760px){.cv-pages{grid-template-columns:1fr}}
+.util{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:44px 16px 16px;background:linear-gradient(135deg,#0c2233,#1b1036)}
+.u-card{background:rgba(255,255,255,.06);border:1px solid rgba(34,211,238,.3);border-radius:12px;padding:12px;display:flex;flex-direction:column;justify-content:center}
+.u-card.ls{border-color:rgba(168,85,247,.45)}
+.u-k{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:700}.u-card.ls .u-k{color:#c084fc}
+.u-t{font-family:var(--head);font-size:30px;font-weight:700;line-height:1.2}
+.u-s{font-size:13px;color:var(--muted)}
 /* CONTACT */
 .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:30px}
 .c-info{display:grid;gap:16px;align-content:start}
@@ -266,7 +272,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
     <div class="about reveal">
       <div>
         <p>I'm a first-year BSc Computing student at the University of South Africa (UNISA) and I hold the FNB App Academy Certificate in Full Stack Development (2025). I've built web apps with HTML, CSS and JavaScript, built and used APIs, and I manage all my code in Git and GitHub.</p>
-        <p>My projects go beyond code: I designed a mobile banking app for first-time digital bankers in rural KwaZulu-Natal, built a full front-end clothing store, and turned local election results into editorial infographics. I write small Python tools to generate pages, check links and keep data accurate.</p>
+        <p>My projects go beyond code: I designed a mobile banking app for first-time digital bankers in rural KwaZulu-Natal, built a clothing store, a banking dashboard and a ride-hailing app, analysed a spaza shop's sales with Python and SQL, and turned local election results into editorial infographics.</p>
         <p>I work full time during the day while carrying a full UNISA module load, so I manage my own schedule, meet deadlines and work independently. I'm looking for a remote internship where I can contribute to real code alongside experienced developers.</p>
       </div>
       <div class="facts">
@@ -388,6 +394,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
       <button class="on" data-f="all">All</button>
       <button data-f="web">Web Development</button>
       <button data-f="uiux">UI/UX Design</button>
+      <button data-f="data">Data Analysis</button>
       <button data-f="graphic">Graphic Design</button>
     </div>
     <div class="projects">
@@ -398,7 +405,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
           <h3>UKHEZO Clothing Co.</h3>
           <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">No frameworks</span></div>
           <p>A front-end e-commerce demo for a South African clothing store, priced in Rand. Shoppers browse, filter, pick colour and size, fill a saved cart and go through a demo checkout with delivery options and 15% VAT. Includes light and dark mode.</p>
-          <div class="p-links"><a href="https://github.com/Ukhezo/UKHEZO-CLOTHING" target="_blank" rel="noopener">View on GitHub</a></div>
+          <div class="p-links"><a href="https://ukhezo.github.io/UKHEZO-CLOTHING/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Ukhezo/UKHEZO-CLOTHING" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </article>
 
@@ -439,12 +446,42 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
       </article>
 
       <article class="p-card reveal" data-cat="web">
-        <div class="thumb"><div class="calc" aria-hidden="true"><div class="body"><div class="scr">1,024</div><div class="keys"><i>7</i><i>8</i><i>9</i><i class="op">÷</i><i>4</i><i>5</i><i>6</i><i class="op">×</i><i>1</i><i>2</i><i>3</i><i class="op">−</i><i>0</i><i>.</i><i>=</i><i class="op">+</i></div></div></div><span class="tag">Web Dev</span></div>
+        <div class="thumb"><img src="img/khula.jpg" alt="Khula Bank dashboard showing a R 25 000 balance and recent transactions" loading="lazy"><span class="tag">Web Dev</span></div>
         <div class="p-body">
-          <h3>Calculator</h3>
-          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-          <p>A calculator app with interactive input handling, built during the FNB App Academy full stack programme.</p>
-          <div class="p-links"><a href="https://github.com/Ukhezo" target="_blank" rel="noopener">GitHub profile</a></div>
+          <h3>Khula Bank</h3>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">Tailwind CSS</span><span class="chip">JavaScript</span></div>
+          <p>A responsive online-banking dashboard demo: EFT transfers with account checks, airtime, data and prepaid electricity, savings pots with progress bars and a live transaction history. All data is fictional.</p>
+          <div class="p-links"><a href="https://ukhezo.github.io/Khula-bank/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Ukhezo/Khula-bank" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+
+      <article class="p-card reveal" data-cat="web">
+        <div class="thumb"><div class="util" aria-hidden="true"><div class="u-card"><div class="u-k">GREYTOWN</div><div class="u-t">24°</div><div class="u-s">Partly cloudy · 5-day outlook</div></div><div class="u-card ls"><div class="u-k">LOAD-SHEDDING</div><div class="u-t">Live</div><div class="u-s">Stage &amp; outages, every 4 hrs</div></div></div><span class="tag">Web Dev</span></div>
+        <div class="p-body">
+          <h3>SA Utilities Dashboard</h3>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">APIs</span><span class="chip">GitHub Actions</span><span class="chip">pytest</span></div>
+          <p>Live weather for any South African town plus the current load-shedding stage and upcoming outages. A scheduled GitHub Actions job calls the EskomSePush API every 4 hours, keeping the API token secret.</p>
+          <div class="p-links"><a href="https://ukhezo.github.io/SA-Utilities-Dashboard/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Ukhezo/SA-Utilities-Dashboard" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+
+      <article class="p-card reveal" data-cat="data">
+        <div class="thumb"><img src="img/spaza.jpg" alt="Bar chart of a spaza shop's monthly sales and gross profit" loading="lazy"><span class="tag">Data Analysis</span></div>
+        <div class="p-body">
+          <h3>Spaza Sales Analyser</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL (SQLite)</span><span class="chip">matplotlib</span><span class="chip">Jupyter</span></div>
+          <p>A Python and SQL tool that turns a spaza shop's sales records into charts and a report. On a year of sample data it found that payday-week sales run 68% higher and that bread and vetkoek earn the most profit.</p>
+          <div class="p-links"><a href="https://github.com/Ukhezo/spaza-sales-analyser" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+
+      <article class="p-card reveal" data-cat="web">
+        <div class="thumb"><img src="img/uzor.jpg" alt="Uzor ride booking screen with a route on a map and ride options" loading="lazy"><span class="tag">Web Dev</span></div>
+        <div class="p-body">
+          <h3>Uzor E-hailing</h3>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS Grid</span><span class="chip">JavaScript</span><span class="chip">Geolocation API</span></div>
+          <p>A responsive ride-hailing booking page: pickup and drop-off with "use my location", three ride options priced in rand, a route map, booking confirmation and accessible pop-up panels.</p>
+          <div class="p-links"><a href="https://ukhezo.github.io/Uzor-ehailing/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Ukhezo/Uzor-ehailing" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </article>
 
@@ -486,6 +523,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
         <label>Your email<input name="email" type="email" required autocomplete="email"></label>
         <label>Subject<input name="subject" placeholder="Internship opportunity"></label>
         <label>Message<textarea name="msg" required></textarea></label>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <button class="btn solid" type="submit">Send message</button>
         <div class="note" id="fnote" aria-live="polite"></div>
       </form>
@@ -510,10 +548,11 @@ const el=document.getElementById('typed');let r=0,c=0,del=false;
 // skills
 const L={Confident:85,Developing:62,Learning:38};
 const skills=[
- ["⌨️","LANGUAGES",[["HTML","Confident"],["CSS","Confident"],["JavaScript","Developing"],["Python (scripting)","Developing"],["C++","Learning"]]],
- ["🖥️","FRONT END & WEB",[["Responsive layouts","Confident"],["CSS Grid & animations","Confident"],["Accessibility","Developing"],["APIs (build & consume)","Developing"],["GitHub Pages hosting","Confident"]]],
+ ["⌨️","LANGUAGES",[["HTML","Confident"],["CSS","Confident"],["JavaScript","Developing"],["Python","Developing"],["SQL","Developing"],["C++","Learning"]]],
+ ["🖥️","FRONT END & WEB",[["Responsive layouts","Confident"],["CSS Grid & animations","Confident"],["Tailwind CSS","Developing"],["Accessibility","Developing"],["APIs (build & consume)","Developing"],["GitHub Pages hosting","Confident"]]],
  ["🎨","DESIGN",[["UI/UX design","Developing"],["Figma","Developing"],["Design systems","Developing"],["Editorial & info design","Developing"],["Data visualisation","Developing"]]],
  ["🛠️","TOOLS & VERSION CONTROL",[["Git & GitHub","Confident"],["GitHub Actions","Developing"],["VS Code & terminal","Confident"],["JSON data files","Developing"],["Microsoft Excel","Developing"]]],
+ ["📊","DATA ANALYSIS",[["pandas","Developing"],["SQL (SQLite)","Developing"],["matplotlib charts","Developing"],["Jupyter notebooks","Developing"],["Testing with pytest","Developing"]]],
  ["🔁","PROCESS",[["SDLC","Confident"],["Design thinking","Developing"],["User research & personas","Developing"],["Usability test planning","Learning"],["AI coding assistants","Developing"]]],
  ["🤝","SOFT SKILLS",[["Self-directed","Confident"],["Detail-oriented","Confident"],["Clear written communication","Confident"],["Eager to learn","Confident"],["Privacy-minded","Confident"]]]
 ];
@@ -539,14 +578,23 @@ addEventListener('scroll',()=>{const y=scrollY+120;let cur='home';secs.forEach(s
   toTop.classList.toggle('show',scrollY>600)},{passive:true});
 toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-// contact form -> opens the visitor's email app
-document.getElementById('cform').addEventListener('submit',e=>{
-  e.preventDefault();const f=e.target,n=document.getElementById('fnote');
-  if(!f.name.value.trim()||!f.email.value.includes('@')||!f.msg.value.trim()){n.textContent='Please fill in your name, a valid email and a message.';n.style.color='#f87171';return}
-  const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
-  const href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent(f.subject.value||'Portfolio enquiry')}&body=${encodeURIComponent(body)}`;
-  n.style.color='';n.innerHTML='Opening your email app… If nothing opens, email me directly at <b>ukhezo@gmail.com</b>.';
-  try{location.href=href}catch(_){}
+// contact form -> sends straight to Gmail via FormSubmit (falls back to the email app)
+document.getElementById('cform').addEventListener('submit',async e=>{
+  e.preventDefault();const f=e.target,n=document.getElementById('fnote'),btn=f.querySelector('button[type=submit]');
+  if(f._honey.value)return;
+  if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)||!f.msg.value.trim()){n.textContent='Please fill in your name, a valid email and a message.';n.style.color='#f87171';return}
+  btn.disabled=true;btn.textContent='Sending…';n.style.color='';n.textContent='';
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/ukhezo@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({name:f.name.value,email:f.email.value,_replyto:f.email.value,_subject:'Portfolio: '+(f.subject.value||'New message'),message:f.msg.value,_template:'table'})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||String(j.success)==='false')throw 0;
+    n.style.color='#4ade80';n.textContent='Thank you! Your message has been sent. I\'ll get back to you soon.';f.reset();
+  }catch(_){
+    const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
+    n.style.color='#fbbf24';n.innerHTML='The message could not be sent from here. Opening your email app instead, or email me at <b>ukhezo@gmail.com</b>.';
+    location.href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent(f.subject.value||'Portfolio enquiry')}&body=${encodeURIComponent(body)}`;
+  }finally{btn.disabled=false;btn.textContent='Send message'}
 });
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
