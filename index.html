@@ -39,6 +39,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .links{display:flex;gap:26px;list-style:none}
 .links a{color:var(--muted);font-family:var(--head);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
 .links a:hover,.links a.active{color:var(--cyan)}
+.links a.cvlink{color:var(--cyan);border:1px solid var(--cyan);border-radius:6px;padding:6px 12px}
+.links a.cvlink:hover{background:var(--cyan);color:#0b0f1a}
+@media(max-width:900px){.links a.cvlink{border:none;padding:14px 4%}}
 .burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:44px;height:38px;color:var(--text);cursor:pointer}
 .burger span{display:block;width:20px;height:2px;background:currentColor;margin:4px auto}
 @media(max-width:900px){
@@ -207,6 +210,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="cv/Mbhekeni_Makhathini_CV.pdf" target="_blank" rel="noopener" class="cvlink">CV ↓</a></li>
     </ul>
   </div>
 </nav>
@@ -225,6 +229,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
       </div>
       <div class="btns">
         <a class="btn solid" href="#contact">Get in touch</a>
+        <a class="btn" href="cv/Mbhekeni_Makhathini_CV.pdf" download target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11 3h2v9.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6V3ZM4 19h16v2H4v-2Z"/></svg>Download CV</a>
         <a class="btn" href="#projects">View projects</a>
       </div>
     </div>
@@ -441,6 +446,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
         <div class="c-item"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5Zm2 2v.4l8 5.3 8-5.3V7H4Zm16 2.8-8 5.3-8-5.3V17h16V9.8Z"/></svg></div><div><div class="k">EMAIL</div><div class="v"><a href="mailto:ukhezo@gmail.com">ukhezo@gmail.com</a></div></div></div>
         <div class="c-item"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></div><div><div class="k">LOCATION</div><div class="v">Greytown, KwaZulu-Natal, South Africa</div></div></div>
         <div class="c-item"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></div><div><div class="k">GITHUB</div><div class="v"><a href="https://github.com/Ukhezo" target="_blank" rel="noopener">github.com/Ukhezo</a></div></div></div>
+        <div class="c-item"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 2h8l6 6v14H6V2Zm7 1.5V9h5.5L13 3.5ZM9 13h8v1.6H9V13Zm0 3.4h8V18H9v-1.6Z"/></svg></div><div><div class="k">CURRICULUM VITAE</div><div class="v"><a href="cv/Mbhekeni_Makhathini_CV.pdf" target="_blank" rel="noopener">View</a> · <a href="cv/Mbhekeni_Makhathini_CV.pdf" download>Download PDF</a></div></div></div>
       </div>
       <form id="cform" novalidate>
         <h3>SEND A MESSAGE</h3>
