@@ -2,6 +2,8 @@
 
 My personal portfolio site, live at **https://ukhezo.github.io/**
 
+Connect with me on [LinkedIn](https://www.linkedin.com/in/mbhekeni-makhathini-723321104/).
+
 BSc Computing student at UNISA and certified full stack developer (FNB App Academy). The site covers my experience, education, skills and projects:
 
 - [UKHEZO Clothing Co.](https://github.com/Ukhezo/UKHEZO-CLOTHING) – front-end e-commerce demo
