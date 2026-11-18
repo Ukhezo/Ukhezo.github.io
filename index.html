@@ -389,7 +389,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
 <section id="projects">
   <div class="wrap">
     <h2 class="sec-title">Featured <span class="grad">Projects</span></h2>
-    <p class="sec-sub">All code and files are on <a href="https://github.com/Ukhezo" target="_blank" rel="noopener">github.com/Ukhezo</a></p>
+    <p class="sec-sub">Tap a project to open it live. All code is on <a href="https://github.com/Ukhezo" target="_blank" rel="noopener">github.com/Ukhezo</a></p>
     <div class="filters" role="tablist">
       <button class="on" data-f="all">All</button>
       <button data-f="web">Web Development</button>
@@ -415,7 +415,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
           <h3>Kuhle Bank</h3>
           <div class="chips"><span class="chip">Figma</span><span class="chip">UX research</span><span class="chip">Design system</span><span class="chip">Mobile</span></div>
           <p>A mobile banking app for first-time digital bankers on prepaid data and entry-level phones. Key decisions: Lite mode on by default, language choice on screen one, fees shown up front and a scam warning at the moment of sending. Ten screens plus a stokvel savings feature.</p>
-          <div class="p-links"><a href="https://github.com/Ukhezo/kuhle-bank-ui-ux-case-study" target="_blank" rel="noopener">Case study</a><a href="https://www.figma.com/design/vgezsnnY4vQcGo2aKVJjET" target="_blank" rel="noopener">Figma prototype</a></div>
+          <div class="p-links"><a href="https://ukhezo.github.io/kuhle-bank-ui-ux-case-study/" target="_blank" rel="noopener">Case study</a><a href="https://www.figma.com/design/vgezsnnY4vQcGo2aKVJjET" target="_blank" rel="noopener">Figma prototype</a><a href="https://github.com/Ukhezo/kuhle-bank-ui-ux-case-study" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </article>
 
@@ -425,7 +425,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
           <h3>Umvoti Votes 2026</h3>
           <div class="chips"><span class="chip">Information design</span><span class="chip">Typography</span><span class="chip">HTML/CSS</span><span class="chip">Python</span></div>
           <p>An editorial infographic series on the 2026 local election results for Umvoti Municipality: two A3 posters and an Instagram post. Politically neutral palette, readable in greyscale, and every number traceable to the official IEC source.</p>
-          <div class="p-links"><a href="https://github.com/Ukhezo/umvoti-lge-2026-infographic" target="_blank" rel="noopener">View on GitHub</a></div>
+          <div class="p-links"><a href="https://ukhezo.github.io/umvoti-lge-2026-infographic/" target="_blank" rel="noopener">View project</a><a href="https://github.com/Ukhezo/umvoti-lge-2026-infographic" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </article>
 
@@ -471,7 +471,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
           <h3>Spaza Sales Analyser</h3>
           <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL (SQLite)</span><span class="chip">matplotlib</span><span class="chip">Jupyter</span></div>
           <p>A Python and SQL tool that turns a spaza shop's sales records into charts and a report. On a year of sample data it found that payday-week sales run 68% higher and that bread and vetkoek earn the most profit.</p>
-          <div class="p-links"><a href="https://github.com/Ukhezo/spaza-sales-analyser" target="_blank" rel="noopener">GitHub</a></div>
+          <div class="p-links"><a href="https://ukhezo.github.io/spaza-sales-analyser/" target="_blank" rel="noopener">View project</a><a href="https://github.com/Ukhezo/spaza-sales-analyser" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </article>
 
@@ -567,6 +567,15 @@ document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('clic
   document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
   const f=b.dataset.f;document.querySelectorAll('.p-card').forEach(p=>{p.classList.toggle('hide',f!=='all'&&p.dataset.cat!==f);if(!p.classList.contains('hide'))p.classList.add('in')});
 }));
+
+// clicking a project's picture or title opens the live project (its first link)
+document.querySelectorAll('.p-card').forEach(card=>{
+  const main=card.querySelector('.p-links a');if(!main)return;
+  card.querySelectorAll('.thumb,.p-body h3').forEach(el=>{
+    el.style.cursor='pointer';el.title='Open '+card.querySelector('h3').textContent;
+    el.addEventListener('click',()=>window.open(main.href,'_blank','noopener'));
+  });
+});
 
 // nav: burger, active link, to-top
 const links=document.querySelector('.links'),burger=document.querySelector('.burger');
