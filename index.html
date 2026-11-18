@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mbhekeni Emmanuel Makhathini | Portfolio</title>
 <meta name="description" content="Portfolio of Mbhekeni Emmanuel Makhathini (Ukhezo): full stack developer, UI/UX and graphic designer, BSc Computing student at UNISA.">
+<meta property="og:title" content="Mbhekeni Emmanuel Makhathini | Portfolio">
+<meta property="og:description" content="Full stack developer, UI/UX and graphic designer. BSc Computing student at UNISA.">
+<meta property="og:image" content="https://ukhezo.github.io/img/profile.jpg">
+<meta property="og:url" content="https://ukhezo.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="img/profile.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -77,6 +84,8 @@ h1{font-family:var(--head);font-weight:900;font-size:clamp(38px,6.4vw,74px);line
 .avatar .inner{position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#1d2742,#0b0f1a 70%);display:grid;place-items:center;text-align:center}
 .avatar .initials{font-family:var(--head);font-weight:900;font-size:clamp(70px,10vw,120px);letter-spacing:4px}
 .avatar .handle{font-family:var(--head);color:var(--muted);font-size:13px;letter-spacing:3px;margin-top:-6px}
+.avatar .inner.photo{overflow:hidden;background:#0b0f1a}
+.avatar .inner.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .avatar .badge{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:15px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .avatar .b1{top:8%;right:-4%}.avatar .b2{bottom:10%;left:-6%}.avatar .b3{bottom:-2%;right:8%}
 .badge i{font-style:normal;color:var(--cyan);margin-right:6px}
@@ -240,9 +249,9 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
         <a class="btn" href="#projects">View projects</a>
       </div>
     </div>
-    <div class="avatar" aria-hidden="true">
+    <div class="avatar">
       <div class="ring"></div>
-      <div class="inner"><div><div class="initials grad">MM</div><div class="handle">@UKHEZO</div></div></div>
+      <div class="inner photo"><img src="img/profile.jpg" alt="Mbhekeni Emmanuel Makhathini" width="640" height="640"></div>
       <div class="badge b1"><i>&lt;/&gt;</i>Full Stack</div>
       <div class="badge b2"><i>&#9670;</i>UI/UX Design</div>
       <div class="badge b3"><i>&#9632;</i>UNISA · BSc</div>
