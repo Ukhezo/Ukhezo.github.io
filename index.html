@@ -524,7 +524,7 @@ footer .name{font-family:var(--head);letter-spacing:3px;font-size:15px;margin-bo
         <label>Subject<input name="subject" placeholder="Internship opportunity"></label>
         <label>Message<textarea name="msg" required></textarea></label>
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-        <button class="btn solid" type="submit">Send message</button>
+        <div class="btns"><button class="btn solid" type="submit">Send message</button><button class="btn" type="button" id="copyMail">Copy email</button></div>
         <div class="note" id="fnote" aria-live="polite"></div>
       </form>
     </div>
@@ -587,24 +587,18 @@ addEventListener('scroll',()=>{const y=scrollY+120;let cur='home';secs.forEach(s
   toTop.classList.toggle('show',scrollY>600)},{passive:true});
 toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-// contact form -> sends straight to Gmail via FormSubmit (falls back to the email app)
-document.getElementById('cform').addEventListener('submit',async e=>{
-  e.preventDefault();const f=e.target,n=document.getElementById('fnote'),btn=f.querySelector('button[type=submit]');
+// contact form -> opens the visitor's email app with the message filled in
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target,n=document.getElementById('fnote');
   if(f._honey.value)return;
   if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)||!f.msg.value.trim()){n.textContent='Please fill in your name, a valid email and a message.';n.style.color='#f87171';return}
-  btn.disabled=true;btn.textContent='Sending…';n.style.color='';n.textContent='';
-  try{
-    const ctl=new AbortController();setTimeout(()=>ctl.abort(),8000);
-    const r=await fetch('https://formsubmit.co/ajax/ukhezo@gmail.com',{signal:ctl.signal,method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({name:f.name.value,email:f.email.value,_replyto:f.email.value,_subject:'Portfolio: '+(f.subject.value||'New message'),message:f.msg.value,_template:'table'})});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok||String(j.success)==='false')throw 0;
-    n.style.color='#4ade80';n.textContent='Thank you! Your message has been sent. I\'ll get back to you soon.';f.reset();
-  }catch(_){
-    const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
-    n.style.color='#fbbf24';n.innerHTML='The message could not be sent from here. Opening your email app instead, or email me at <b>ukhezo@gmail.com</b>.';
-    location.href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent(f.subject.value||'Portfolio enquiry')}&body=${encodeURIComponent(body)}`;
-  }finally{btn.disabled=false;btn.textContent='Send message'}
+  const body=`${f.msg.value}\n\n— ${f.name.value} (${f.email.value})`;
+  n.style.color='#4ade80';n.innerHTML='Opening your email app with your message ready to send. Nothing opened? Use <b>Copy email</b> below and send it from your own email.';
+  location.href=`mailto:ukhezo@gmail.com?subject=${encodeURIComponent('Portfolio: '+(f.subject.value||'New message'))}&body=${encodeURIComponent(body)}`;
+});
+document.getElementById('copyMail').addEventListener('click',async ev=>{
+  const b=ev.currentTarget;try{await navigator.clipboard.writeText('ukhezo@gmail.com');b.textContent='Copied ✓'}catch(_){b.textContent='ukhezo@gmail.com'}
+  setTimeout(()=>b.textContent='Copy email',2500);
 });
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
