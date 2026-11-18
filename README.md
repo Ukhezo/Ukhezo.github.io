@@ -1,4 +1,4 @@
-# Mbhekeni Makhathini – Portfolio
+# Mbhekeni Emmanuel Makhathini – Portfolio
 
 My personal portfolio site, live at **https://ukhezo.github.io/**
 
